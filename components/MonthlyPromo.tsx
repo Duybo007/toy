@@ -19,7 +19,7 @@ function MonthlyPromo() {
             Three Artisan Studio
           </div>
           <div className="pt-8 text-xl lg:text-3xl leading-10">
-          Embodying the essence of Itachi's enigmatic persona, this meticulously crafted collectible captures the iconic presence of the beloved Naruto character. A must-have for fans and collectors alike.
+          Embodying the essence of Itachi&apos;s enigmatic persona, this meticulously crafted collectible captures the iconic presence of the beloved Naruto character. A must-have for fans and collectors alike.
           </div>
           <div className="pt-16 flex items-center justify-between">
             <div className="text-4xl lg:text-5xl xl:text-6xl font-bold underline underline-offset-2">$ 123.45</div>

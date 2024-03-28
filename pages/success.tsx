@@ -3,7 +3,7 @@ import { BsBagCheckFill } from 'react-icons/bs';
 import Link from 'next/link';
 
 
-function success() {
+function Success() {
   return (
     <div className="pt-10">
       <div className="success bg-dark flex flex-col border-2 border-light p-20 justify-center items-center rounded-lg text-xl gap-5">
@@ -28,4 +28,4 @@ function success() {
   )
 }
 
-export default success
+export default Success

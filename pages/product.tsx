@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { useCart } from "@/context/StateContext";
 
-function product({ products }: any) {
+function Product({ products }: any) {
 
   const { searchTerm } = useCart();
 
@@ -175,7 +175,7 @@ function product({ products }: any) {
   );
 }
 
-export default product;
+export default Product;
 
 export const getServerSideProps = async () => {
   const query = '*[_type == "product" ]';

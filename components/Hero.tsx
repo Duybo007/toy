@@ -12,7 +12,7 @@ import {
 import HeroImage from "./ui/heroImage";
 import { heroImage } from "@/constants";
 
-function Hero({heroImages}: any) {
+function Hero({ heroImages }: any) {
   const { cart, openCartModal } = useCart();
 
   //Get total amount from cart
@@ -93,17 +93,22 @@ function Hero({heroImages}: any) {
                   </div>
                 )}
               </div>
-              <div className="text-3xl lg:text-6xl flex items-center lg:items-start">toyzz</div>
+              <div className="text-3xl lg:text-6xl flex items-center lg:items-start">
+                toyzz
+              </div>
             </div>
           </div>
         </div>
 
-        <div id="img" className="pt-5 lg:pt-10 flex items-center w-full md:hidden justify-center h-[58%] opacity-0">
+        <div
+          id="img"
+          className="pt-5 lg:pt-10 flex items-center w-full md:hidden justify-center h-[58%] opacity-0"
+        >
           <Carousel className="w-[80%]">
             <CarouselContent>
               {heroImage.map((img: any) => (
-                <CarouselItem>
-                  <div  key={img} className="bg-white">
+                <CarouselItem key={img}>
+                  <div className="bg-white">
                     <img src={img} alt="" />
                   </div>
                 </CarouselItem>
@@ -116,7 +121,7 @@ function Hero({heroImages}: any) {
 
         <div className="pt-10 hidden md:flex justify-between h-[65%] lg:h-[72%]">
           {heroImages.map((img: any) => (
-            <HeroImage key={img.url} src={img.url} bg={img.bg}/>
+            <HeroImage key={img.url} src={img.url} bg={img.bg} />
           ))}
         </div>
 
