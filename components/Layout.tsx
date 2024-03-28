@@ -20,7 +20,7 @@ function Layout({ children }: LayoutProps): JSX.Element {
     <StateContextProvider>
       <Head>
         <title>ToyZZ</title>
-        {/* <link rel="icon" href="/recipe.png" /> */}
+        <link rel="icon" href="/assets/hero/gundam-icon.png" />
       </Head>
 
       {router.pathname === "/" ? (
