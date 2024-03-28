@@ -1,4 +1,3 @@
-import { monthlyPromo } from "@/constants";
 import React, { useState } from "react";
 
 function ImagesDisplay({images} : any) {

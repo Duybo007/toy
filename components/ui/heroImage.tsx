@@ -6,12 +6,19 @@ function HeroImage({ src, bg }: any) {
   const waitForHalfSecond = () => {
     setTimeout(() => {
       setImgLoaded(true);
-    }, 1800); 
+    }, 1800); // 500 milliseconds = 0.5 seconds
   };
 
   useEffect(() => {
-    waitForHalfSecond();
+    // waitForHalfSecond();
   }, []);
+
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => setImgLoaded(true);
+    img.src = src;
+  }, [src]);
+
 
   return (
     <div

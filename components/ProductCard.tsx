@@ -4,18 +4,9 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useCart } from "@/context/StateContext";
 import { useToast } from "./ui/use-toast";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 function ProductCard({ product }: any) {
-  useGSAP(() => {
-    gsap.to("#productCard", {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      stagger: 0.25,
-    });
-  })
+
   const { toast } = useToast()
   const { addCart } = useCart();
   const [isHovered, setIsHovered] = useState(false);
@@ -44,7 +35,7 @@ function ProductCard({ product }: any) {
     })
   };
   return (
-    <Link id="productCard" href={`/product/${product._id}`} className="opacity-0 translate-y-10">
+    <Link id="productCard" href={`/product/${product._id}`} >
       <motion.div
         layout
         className="w-80 rounded-md border-2 border-light overflow-hidden pb-4"
