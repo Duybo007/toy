@@ -7,7 +7,7 @@ import { useCart } from "@/context/StateContext";
 
 function Product({ products }: any) {
 
-  const { searchTerm } = useCart();
+  const { searchTerm,setStateSearchTerm } = useCart();
 
   const [checkboxes, setCheckboxes] = useState({
     inStock: false,
@@ -26,6 +26,8 @@ function Product({ products }: any) {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [productCounts, setProductCounts] = useState({});
   const [sortOrder, setSortOrder] = useState("bestSelling");
+
+  setStateSearchTerm("")
 
   useEffect(() => {
     if (searchTerm === "") {
