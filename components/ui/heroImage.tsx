@@ -2,23 +2,22 @@ import React, { useEffect, useState } from "react";
 
 function HeroImage({ src, bg }: any) {
   const [imgLoaded, setImgLoaded] = useState(false);
-
+  console.log(src, bg);
   const waitForHalfSecond = () => {
     setTimeout(() => {
       setImgLoaded(true);
-    }, 1800); // 500 milliseconds = 0.5 seconds
+    }, 1800);
   };
 
   useEffect(() => {
-    // waitForHalfSecond();
+    waitForHalfSecond();
   }, []);
 
-  useEffect(() => {
-    const img = new Image();
-    img.onload = () => setImgLoaded(true);
-    img.src = src;
-  }, [src]);
-
+  //   useEffect(() => {
+  //     const img = new Image();
+  //     img.onload = () => setImgLoaded(true);
+  //     img.src = src;
+  //   }, [src]);
 
   return (
     <div

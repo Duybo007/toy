@@ -1,11 +1,11 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { highlightsImg } from "@/constants";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Highlights({ highlights }: any) {
+export default function Highlights({ highlightProducts }: any) {
   useGSAP(() => {
     gsap.to("#left-text", {
       opacity: 1,
@@ -30,7 +30,10 @@ export default function Highlights({ highlights }: any) {
           >
             bring your heros to life
           </div>
-          <div id="left-text" className="text-xl lg:text-3xl opacity-0 translate-y-20">
+          <div
+            id="left-text"
+            className="text-xl lg:text-3xl opacity-0 translate-y-20"
+          >
             step into a world of thrilling escapades and larger-than-life
             characters as you explore our impressive collection of action
             figures
@@ -50,28 +53,34 @@ export default function Highlights({ highlights }: any) {
         </div>
         <div className="w-1/2 hidden lg:flex flex-row h-full">
           <div className="w-1/2 flex flex-col gap-4 track-small track">
-            {[...highlightsImg, ...highlightsImg].map((img, i) => (
-              <div
-                key={`${img}-${i}`}
+            {[...highlightProducts, ...highlightProducts].map((img, i) => (
+              <Link
+                href={`/product/${img._id}`}
+                key={`${img.imageUrl}-${i}`}
                 className="product-card h-[500px] w-[280px] xl:w-[330px]"
               >
-                <img src={img} alt="" className="h-full w-full object-cover" />
-              </div>
+                <img
+                  src={img.imageUrl}
+                  alt=""
+                  className="h-full w-full object-cover"
+                />
+              </Link>
             ))}
           </div>
           <div className="w-1/2 flex flex-col gap-4 track-rev justify-end">
-            {[...highlightsImg, ...highlightsImg].map((img, i) => (
-              <div
-                key={`${img}_${i}`}
+            {[...highlightProducts, ...highlightProducts].map((img, i) => (
+              <Link
+                href={`/product/${img._id}`}
+                key={`${img.imageUrl}_${i}`}
                 className="product-card h-[500px] w-[280px] xl:w-[330px]"
               >
                 <img
                   loading="lazy"
-                  src={img}
+                  src={img.imageUrl}
                   alt=""
                   className="h-full w-full object-cover"
                 />
-              </div>
+              </Link>
             ))}
           </div>
         </div>

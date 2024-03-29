@@ -9,15 +9,14 @@ import { client, urlFor } from "@/lib/client";
 import { useEffect } from "react";
 
 export default function Home({ highlightProducts, heroImagesArray }: any) {
-  // console.log(heroImages);
-
+  console.log(heroImagesArray);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <main>
-      <Hero heroImages={heroImagesArray} />
-      <Highlights />
+      <Hero heroImagesArray={heroImagesArray} />
+      <Highlights highlightProducts={highlightProducts}/>
       <Epic />
       <MonthlyPromo />
       <Quote />
@@ -28,8 +27,12 @@ export default function Home({ highlightProducts, heroImagesArray }: any) {
 
 export const getServerSideProps = async () => {
   const query =
-    '*[_type == "product" ]{ image, name, slug, price, details, categories ,"highlight": true}';
+    '*[_type == "product" ]{ _id, image, name, slug, price, details, categories ,"highlight": true}';
   const highlightProducts = await client.fetch(query);
+  highlightProducts.map((product: any) => {
+    const image = product.image[0]? urlFor(product.image[0])?.url() : ""
+    product.imageUrl = image
+  })
 
   let heroImagesArray: any = [];
   const queryHero = '*[_type == "heroImgs" ]';

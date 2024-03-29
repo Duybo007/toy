@@ -12,7 +12,7 @@ import {
 import HeroImage from "./ui/heroImage";
 import { heroImage } from "@/constants";
 
-function Hero({ heroImages }: any) {
+function Hero({ heroImagesArray }: any) {
   const { cart, openCartModal } = useCart();
 
   //Get total amount from cart
@@ -120,7 +120,7 @@ function Hero({ heroImages }: any) {
         </div>
 
         <div className="pt-10 hidden md:flex justify-between h-[65%] lg:h-[72%]">
-          {heroImages.map((img: any) => (
+          {heroImagesArray.map((img: any) => (
             <HeroImage key={img.url} src={img.url} bg={img.bg} />
           ))}
         </div>
