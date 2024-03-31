@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 function HeroImage({ src, bg }: any) {
   const [imgLoaded, setImgLoaded] = useState(false);
-  console.log(src, bg);
+
   const waitForHalfSecond = () => {
     setTimeout(() => {
       setImgLoaded(true);

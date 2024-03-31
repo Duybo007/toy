@@ -65,8 +65,9 @@ export const productType = defineType({
           of: [{
               type: 'object',
               fields: [
+                  { name: 'name', title: 'Order Number', type: 'string' },
                   { name: 'amount', title: 'Amount', type: 'number' },
-                  { name: 'date', title: 'Date', type: 'datetime' }
+                  { name: 'date', title: 'Date', type: 'datetime' },
               ]
           }]
       }

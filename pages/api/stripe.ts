@@ -33,15 +33,14 @@ export default async function handler(req: any, res: any) {
                     quantity: item.amount
                   }
             }),
-            success_url: `${req.headers.origin}/success?paymentIntentId={session.payment_intent}`,
-            cancel_url: `${req.headers.origin}/`,
+            success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${req.headers.origin}/cancel`,
           }
       // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create(params);
+      session.items = req.body
 
-      res.status(200).json(session);
-
-      
+      res.status(200).json(session);      
     } catch (err: any) {
       res.status(err.statusCode || 500).json(err.message);
     }

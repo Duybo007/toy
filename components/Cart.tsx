@@ -32,7 +32,7 @@ function Cart() {
     if (response.status === 500) return;
 
     const data = await response.json();
-    localStorage.setItem('checkoutSessionId', JSON.stringify(data));
+    localStorage.setItem('checkoutSession', JSON.stringify(data));
 
     stripe.redirectToCheckout({ sessionId: data.id });
 

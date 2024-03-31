@@ -20,6 +20,8 @@ function NavBarSecondary() {
     return cart.reduce((total, item: any) => total + item.amount, 0);
   };
 
+  getTotalAmount()
+
   useEffect(() => {
     setRoute(router.pathname);
   }, [router]);
@@ -70,10 +72,11 @@ function NavBarSecondary() {
             onClick={openCartModal}
             className="hidden md:block w-8 h-8"
           />
-          {getTotalAmount() > 0 && (
-            <div className="hidden md:absolute top-[-15px] right-[-10px] border-2 border-light rounded-full w-6 bg-[#121212] text-center">
+          {cart.length > 0 && (
+            <div className="hidden md:block absolute top-[-15px] right-[-10px] border-2 border-light rounded-full w-6 bg-[#121212] text-center">
               {getTotalAmount()}
             </div>
+        
           )}
         </div>
         {clickMenu && (
@@ -90,6 +93,7 @@ function NavBarSecondary() {
                   {nav.name}
                 </Link>
               ))}
+              <div onClick={openCartModal} className="px-3 py-2 rounded-md">cart</div>
             </div>
           </div>
         )}

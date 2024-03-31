@@ -9,7 +9,7 @@ import { client, urlFor } from "@/lib/client";
 import { useEffect } from "react";
 
 export default function Home({ highlightProducts, heroImagesArray }: any) {
-  console.log(heroImagesArray);
+  console.log(highlightProducts)
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -27,7 +27,7 @@ export default function Home({ highlightProducts, heroImagesArray }: any) {
 
 export const getServerSideProps = async () => {
   const query =
-    '*[_type == "product" ]{ _id, image, name, slug, price, details, categories ,"highlight": true}';
+    '*[_type == "product" ]{ _id, image, name, slug, price, details, categories ,"highlight": true, bought}';
   const highlightProducts = await client.fetch(query);
   highlightProducts.map((product: any) => {
     const image = product.image[0]? urlFor(product.image[0])?.url() : ""
