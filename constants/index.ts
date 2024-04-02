@@ -1,8 +1,8 @@
 export const navLists = [
     { name: "home", path: "/" },
     { name: "product", path: "/product" },
-    { name: "about us", path: "/aboutus" },
-    { name: "discount", path: "/discount" }
+    { name: "about us", path: "/about" },
+    { name: "discount", path: "/about" }
   ];
 
 export const heroImageBg = ["./assets/hero/02-s.webp", "./assets/hero/gundam-s.webp", "./assets/hero/prime-s.webp" ]
