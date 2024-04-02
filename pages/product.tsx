@@ -19,7 +19,6 @@ function Product({ products }: any) {
     naruto: false,
     disney: false,
     one_piece: false,
-    hentai: false,
   });
 
   const [displayProducts, setDisplayProducts] = useState(products);
@@ -71,13 +70,11 @@ function Product({ products }: any) {
         (!checkboxes.anime &&
           !checkboxes.naruto &&
           !checkboxes.disney &&
-          !checkboxes.one_piece &&
-          !checkboxes.hentai) ||
+          !checkboxes.one_piece) ||
         (checkboxes.anime && product.categories.includes("anime")) ||
         (checkboxes.naruto && product.categories.includes("naruto")) ||
         (checkboxes.disney && product.categories.includes("disney")) ||
-        (checkboxes.one_piece && product.categories.includes("one piece")) ||
-        (checkboxes.hentai && product.categories.includes("hentai"));
+        (checkboxes.one_piece && product.categories.includes("one piece"))
 
       return isAvailable && isPriceInRange && isCategorySelected;
     });
@@ -136,9 +133,6 @@ function Product({ products }: any) {
       ).length,
       one_piece: filteredProducts.filter((product: any) =>
         product.categories.includes("one piece")
-      ).length,
-      hentai: filteredProducts.filter((product: any) =>
-        product.categories.includes("hentai")
       ).length,
     };
     setProductCounts(counts);

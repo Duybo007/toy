@@ -106,13 +106,6 @@ function SideFilter({
               count={productCounts.naruto}
             />
             <Checkbox
-              checkboxes={checkboxes.hentai}
-              name="hentai"
-              handleCheckboxChange={handleCheckboxChange}
-              label="hentai"
-              count={productCounts.hentai}
-            />
-            <Checkbox
               checkboxes={checkboxes.disney}
               name="disney"
               handleCheckboxChange={handleCheckboxChange}
