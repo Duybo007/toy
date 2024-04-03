@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useCart } from "@/context/StateContext";
 import { useToast } from "./ui/use-toast";
+import Image from "next/image";
 
 function ProductCard({ product }: any) {
-
-  const { toast } = useToast()
+  const { toast } = useToast();
   const { addCart } = useCart();
   const [isHovered, setIsHovered] = useState(false);
 
@@ -32,18 +32,20 @@ function ProductCard({ product }: any) {
     addCart(product.name, product._id, imageUrlPrimary, 1, product.price);
     toast({
       description: `${product.name} has been added to your cart.`,
-    })
+    });
   };
   return (
-    <Link id="productCard" href={`/product/${product._id}`} >
+    <Link id="productCard" href={`/product/${product._id}`}>
       <motion.div
         layout
         className="w-80 rounded-md border-2 border-light overflow-hidden pb-4"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="w-full h-[320px]">
-          <img
+        <div className="w-[320px] h-[320px]">
+          <Image
+            width={320}
+            height={320}
             src={isHovered ? imageUrlSecondary : imageUrlPrimary}
             alt={product.name}
             className="object-cover w-full h-full"

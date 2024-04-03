@@ -2,6 +2,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,13 +58,16 @@ export default function Highlights({ highlightProducts }: any) {
               <Link
                 href={`/product/${img._id}`}
                 key={`${img.imageUrl}-${i}`}
-                className="product-card h-[500px] w-[280px] xl:w-[330px]"
+                className="product-card w-[280px] xl:w-[330px] relative"
               >
-                <img
-                  src={img.imageUrl}
-                  alt=""
-                  className="h-full w-full object-cover"
-                />
+                <div className="w-full h-[500px] relative">
+                  <Image
+                    fill
+                    src={img.imageUrl}
+                    alt="highlight images"
+                    className="object-cover"
+                  />
+                </div>
               </Link>
             ))}
           </div>
@@ -74,12 +78,15 @@ export default function Highlights({ highlightProducts }: any) {
                 key={`${img.imageUrl}_${i}`}
                 className="product-card h-[500px] w-[280px] xl:w-[330px]"
               >
-                <img
-                  loading="lazy"
-                  src={img.imageUrl}
-                  alt=""
-                  className="h-full w-full object-cover"
-                />
+                <div className="w-full h-[500px] relative">
+                  <Image
+                    fill
+                    loading="lazy"
+                    src={img.imageUrl}
+                    alt="highlight images"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
               </Link>
             ))}
           </div>
