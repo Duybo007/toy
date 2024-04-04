@@ -22,7 +22,7 @@ export default function Home({ highlightProducts, heroImagesArray }: any) {
       <Epic />
       <MonthlyPromo />
       <Quote />
-      <div className="h-screen w-full relative">
+      <div className="h-[80vh] w-full relative">
         <ThreeDCanvas />
         <StarsCanvas />
       </div>
