@@ -8,9 +8,9 @@ const ThreeD = ({ isMobile }: any) => {
 
   return (
     <mesh>
-      <hemisphereLight intensity={1} groundColor="black" />
+      <hemisphereLight intensity={0.7} groundColor="black" />
       <spotLight
-        position={[-20, 50, 10]}
+        position={[-20,50, 10]}
         angle={0.12}
         penumbra={1}
         intensity={1}
@@ -20,8 +20,8 @@ const ThreeD = ({ isMobile }: any) => {
       <pointLight intensity={5} />
       <primitive
         object={sazabi.scene}
-        scale={isMobile ? 1.8 :2.2}
-        position={[0, -3, 0]}
+        scale={isMobile ? 1.8 : 2.6 }
+        position={[0, -3.5, 0]}
         rotation={[0, 1.5, 0]}
       />
     </mesh>
